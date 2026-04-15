@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>商品登録 / 編集</h1>
+
+<form th:action="@{/item/save}" method="post">
+
+<input type="hidden" name="id" th:value="${item.id}">
+
+商品名:
+<input type="text" name="name" th:value="${item.name}"><br>
+
+在庫数:
+<input type="number" name="quantity" th:value="${item.quantity}"><br>
+
+<button type="submit">保存</button>
+
+</form>
+
+<a href="/item">戻る</a>
+
+</body>
+</html>
