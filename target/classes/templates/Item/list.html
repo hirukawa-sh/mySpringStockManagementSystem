@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-64UC4BEhTGwk3eGpak4nO2jqtl7liTS+juXkSJ2gPAQPmlClQO7s5UgCeR6US48g" crossorigin="anonymous">
+<link th:href="@{css/style.css}">
 <body>
 
 <h1>在庫一覧</h1>
 
-<a href="/item/new">新規登録</a>
+<a href="/item/new" class="btn">新規登録</a>
 
-<table border="1">
+<table class="table">
 <tr>
-<th>ID</th>
+<th scope="col">ID</th>
 <th>商品名</th>
 <th>在庫数</th>
 <th>操作</th>
@@ -25,6 +30,6 @@
 </tr>
 
 </table>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-jdSIJTK9l6XwXj3RixpVDXtMcA2bFd9O81RlLAwhpr2oXRqvQP88rr16IeFXTgFE" crossorigin="anonymous"></script>
 </body>
 </html>

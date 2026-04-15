@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>販売一覧</title>
+</head>
+
+<body>
+
+<div th:replace="layout :: header"></div>
+
+<div class="container mt-4">
+    <h1>販売一覧</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>商品名</th>
+                <th>数量</th>
+                <th>販売日時</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sale : ${sales}">
+                <td th:text="${sale.id}"></td>
+                <td th:text="${sale.itemName}"></td>
+                <td th:text="${sale.quantity}"></td>
+                <td th:text="${sale.saleDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

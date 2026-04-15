@@ -1,42 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>販売管理システム</title>
-
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>メニュー</title>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand">販売管理システム</a>
+<div th:replace="layout :: header"></div>
 
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/menu}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/items}">商品管理</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/sales}">販売管理</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/stock}">在庫管理</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div class="container mt-4">
+    <h1>メニュー</h1>
 
-<div class="h1">
-  こんにちは、<span th:text="${username}">ユーザー</span>さん。
+    <p>
+        こんにちは、
+        <span th:text="${username}">ユーザー</span> さん
+    </p>
 </div>
-
-<p>メニューから、業務を選択してください。</p>
 
 </body>
 </html>
