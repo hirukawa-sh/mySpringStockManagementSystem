@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>メニュー</title>
-</head>
-
+<head th:replace="common/layout::head('ログイン')"></head>
 <body>
 
-<div th:replace="layout :: header"></div>
-
+<main th:replace="common/layout::content">
 <div class="container mt-4">
     <h1>メニュー</h1>
-
     <p>
         こんにちは、
         <span th:text="${username}">ユーザー</span> さん
     </p>
 </div>
+</main>
 
 </body>
 </html>

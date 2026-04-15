@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>ログイン</title>
-
-    <link th:href="@{/css/style.css}" rel="stylesheet">
-</head>
-
+<head th:replace="common/layout::head('ログイン')"></head>
 <body>
 
+<main th:replace="common/layout::content">
 <div class="container mt-5">
     <h2>ログイン</h2>
 
@@ -26,6 +21,7 @@
         <button type="submit" class="btn btn-primary">ログイン</button>
     </form>
 </div>
+</main>
 
 </body>
 </html>
