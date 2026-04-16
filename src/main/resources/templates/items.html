@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="common/layout::head"></head>
+
 <body>
-    
-<header th:replace="common/layout::header('メニュー')"></header>
-
-<div class="container mt-4">
-    <h1>商品一覧</h1>
-
-    <a th:href="@{/items/new}" class="btn btn-primary">新規作成</a>
-
-    <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>商品名</th>
-                <th>価格</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="item : ${items}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.price}"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+  
+  <header th:replace="common/layout::header('商品一覧')"></header>
+  
+  <a class="btn btn-primary m-3" th:href="@{/items/new}">新規</a>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-1" scope="col">ID</th>
+        <th scope="col">商品名</th>
+        <th class="col-3" scope="col">販売単価</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="item : ${items}">
+        <th scope="row" th:text="${item.id}"></th>
+        <td><a th:href="@{/items/new}&id=${item.id}" th:text="${item.name}"></a></td>
+        <td th:text="${item.price}"></td>
+      </tr>
+  </table>
+  
+  <nav th:replace="common/layout::pagination"></nav>
 
 </body>
+
 </html>
