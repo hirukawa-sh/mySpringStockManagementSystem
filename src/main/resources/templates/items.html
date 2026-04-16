@@ -18,7 +18,7 @@
     <tbody>
       <tr th:each="item : ${items}">
         <th scope="row" th:text="${item.id}"></th>
-        <td><a th:href="@{/items/new}&id=${item.id}" th:text="${item.name}"></a></td>
+        <td><a th:href="@{/items/new(id=${item.id})}" th:text="${item.name}"></a></td>
         <td th:text="${item.price}"></td>
       </tr>
   </table>
