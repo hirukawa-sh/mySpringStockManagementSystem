@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/layout::head('ログイン')"></head>
+<head th:replace="common/layout::head"></head>
 <body>
     
-<header th:replace="common/layout::header"></header>
+<header th:replace="common/layout::header('メニュー')"></header>
 
 <main th:replace="common/layout::content">
 <div class="container mt-4">
-    <h1>メニュー</h1>
-    <p>
-        こんにちは、
-        <span th:text="${username}">ユーザー</span> さん
-    </p>
+    <div class="h1">
+        こんにちは、<span th:text="${username}">ユーザー</span> さん。
+    </div>
+    <p>メニューから、業務を選択してください。</p>
 </div>
 </main>
 
