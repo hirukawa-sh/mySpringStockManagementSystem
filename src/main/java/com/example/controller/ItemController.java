@@ -22,9 +22,9 @@ public class ItemController {
         return "items";
     }
 
-    @GetMapping("/items/new")
+    @GetMapping("/items/edit")
     public String createForm() {
-        return "newitem";
+        return "edititem";
     }
 
     @PostMapping("/items")

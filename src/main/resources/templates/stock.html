@@ -2,29 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/layout::head"></head>
 <body>
+    <header th:replace="common/layout::header('在庫一覧')"></header>
     
-<header th:replace="common/layout::header('在庫一覧')"></header>
-
-<div class="container mt-4">
-    <h1>在庫一覧</h1>
-
+    <div class="modal fade" id="confirmOrders" tabindex="-1" aria-labelledby="confirmOrdersLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="confirmOrdersLabel">送信確認</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    発注情報を送信しますか？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-primary">送信する</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#confirmOrders">発注</a>
+    
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>商品名</th>
-                <th>在庫数</th>
+                <th class="col-1" scope="col">ID</th>
+                <th scope="col">商品名</th>
+                <th scope="col">在庫</th>
+                <th class="col-2" scope="col">発注</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="stock : ${stocks}">
-                <td th:text="${stock.id}"></td>
+                <th scope="row "th:text="${stock.id}"></th>
                 <td th:text="${stock.itemName}"></td>
                 <td th:text="${stock.quantity}"></td>
+                <td><input type="text" class="form-control" value="0"></td>
             </tr>
         </tbody>
     </table>
-</div>
-
+    
+    <nav th:replace="common/layout::pagination"></nav>
+    
 </body>
+
 </html>

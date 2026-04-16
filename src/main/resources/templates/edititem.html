@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/layout::head"></head>
+<body>
+    
+<header th:replace="common/layout::header('商品登録')"></header>
+
+<div class="container mt-4">
+<form th:action="@{/items}">
+    <div class="mb-3">
+        <label class="form-label">
+            商品名
+        </label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">
+            仕入先
+        </label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">
+            販売価格
+        </label>
+        <input type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary" type="submit">登録</button>
+</form>
+
+</body>
+</html>
