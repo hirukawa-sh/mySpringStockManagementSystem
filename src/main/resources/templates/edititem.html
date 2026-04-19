@@ -24,7 +24,7 @@
         <label class="form-label">
             販売価格
         </label>
-        <input type="text" name="price" class="form-control" th:field="*{price}">
+        <input type="text" class="form-control" th:field="*{price}">
     </div>
     <button type="submit" class="btn btn-primary m-3" th:text="${item.id} == null ? '登録' : '更新'"></button>
 </form>
