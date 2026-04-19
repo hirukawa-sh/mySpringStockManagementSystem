@@ -11,6 +11,7 @@ public class Item {
     private Long id;
 
     private String name;
+    private String supplier;
     private Integer price;
 
     // getter / setter
@@ -19,6 +20,9 @@ public class Item {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    
+        public String getSupplier() { return supplier; }
+    public void setSupplier(String supplier) { this.supplier = supplier; }
 
     public Integer getPrice() { return price; }
     public void setPrice(Integer price) { this.price = price; }

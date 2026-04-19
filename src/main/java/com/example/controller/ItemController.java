@@ -22,8 +22,9 @@ public class ItemController {
         return "items";
     }
 
-    @GetMapping("/items/edit")
-    public String createForm() {
+    @GetMapping("/items/edit/{id}")
+    public String createForm(@PathValiable Long id, Model model) {
+        model.addAttribute("item", repo.findById(id);)
         return "edititem";
     }
 
