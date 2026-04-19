@@ -22,14 +22,20 @@ public class ItemController {
         return "items";
     }
 
+    @GetMapping("/items/new")
+    public String newForm(Model model){
+        model.addAttribute("item", new Item());
+        return "edititem";
+    }
+
     @GetMapping("/items/edit/{id}")
-    public String createForm(@PathVariable Long id, Model model) {
-        model.addAttribute("item", repo.findById(id));
+    public String edit(@PathVariable Long id, Model model){
+        model.addAttribute("item", repo.findById(id).orElse(new Item()));
         return "edititem";
     }
 
     @PostMapping("/items")
-    public String create(Item item) {
+    public String save(Item item){
         repo.save(item);
         return "redirect:/items";
     }
