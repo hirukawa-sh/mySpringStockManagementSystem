@@ -17,13 +17,13 @@
         <label class="form-label">
             仕入先
         </label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" th:value="${item.supplier}">
     </div>
     <div class="mb-3">
         <label class="form-label">
             販売価格
         </label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" th:value="${item.price}">
     </div>
     <button class="btn btn-primary" type="submit">登録</button>
 </form>
