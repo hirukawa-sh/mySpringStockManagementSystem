@@ -6,28 +6,39 @@
 <header th:replace="common/layout::header('商品登録')"></header>
 
 <div class="container mt-4">
-<form th:object="${item}" th:action="@{/items}" method="post">
-    <input type="hidden" th:field="*{id}">
-    <div class="mb-3">
-        <label class="form-label">
-            商品名
-        </label>
-        <input type="text" class="form-control" th:field="*{name}">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">
-            仕入先
-        </label>
-        <input type="text" class="form-control" th:field="*{supplier}">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">
-            販売価格
-        </label>
-        <input type="text" class="form-control" th:field="*{price}">
-    </div>
-    <button type="submit" class="btn btn-primary m-3" th:text="${item.id} == null ? '登録' : '更新'"></button>
-</form>
+    <form th:object="${item}" th:action="@{/items}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">
+                商品名
+            </label>
+            <input type="text" class="form-control" th:field="*{name}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                仕入先
+            </label>
+            <input type="text" class="form-control" th:field="*{supplier}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                販売価格
+            </label>
+            <input type="text" class="form-control" th:field="*{price}">
+        </div>
+
+        <button type="button" class="btn btn-secondary" onclick="history.back()">戻る</button>
+        <button type="submit" class="btn btn-primary" th:text="${item.id} == null ? '登録' : '更新'"></button>
+    </form>
+
+    <form th:if="${item.id} != null"
+            class="d-flex justify-content-end"
+            th:action="@{/items/delete/{id}(id=${item.id})}"
+            method="post"
+            onsubmit="return confirm('削除しますか？');">
+            <button type="submit" class="btn btn-danger">削除</button>
+    </form>
+</div>
 
 </body>
 </html>
