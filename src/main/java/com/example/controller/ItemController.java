@@ -16,7 +16,7 @@ public class ItemController {
         this.repo = repo;
     }
 
-    //　一覧
+    // 一覧
     @GetMapping("/items")
     public String list(Model model) {
         model.addAttribute("items", repo.findAll());
@@ -30,14 +30,14 @@ public class ItemController {
         return "edititem";
     }
 
-    //　編集
+    // 編集
     @GetMapping("/items/edit/{id}")
     public String edit(@PathVariable Long id, Model model){
         model.addAttribute("item", repo.findById(id).orElse(new Item()));
         return "edititem";
     }
 
-    //　更新
+    // 更新
     @PostMapping("/items")
     public String save(Item item){
         repo.save(item);

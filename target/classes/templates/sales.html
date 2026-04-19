@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/layout::head"></head>
+<body>
+  <header th:replace="common/layout::header('販売一覧')"></header>
+  
+  <!--詳細モーダル-->
+  <div class="modal fade" id="salesDetail" tabindex="-1" aria-labelledby="salesDetailLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="salesDetailLabel">売上詳細</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="col-4">売上ID</th>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>販売担当</th>
+                <td>山田 花子</td>
+              </tr>
+              <tr>
+                <th>販売日時</th>
+                <td>2025/8/10 10:34</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">商品名</th>
+                <th class="col-2" scope="col">販売単価</th>
+                <th class="col-2" scope="col">数量</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>ポテトチップス うすしお</td>
+                <td>150</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>チョコレート</td>
+                <td>200</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>コーヒーキャラメル</td>
+                <td>180</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <th class="text-end" colspan="2">小計</th>
+                <td colspan="2">2290</td>
+              </tr>
+              <tr>
+                <th class="text-end" colspan="2">税額</th>
+                <td colspan="2">229</td>
+              </tr>
+              <tr>
+                <th class="text-end" colspan="2">合計</th>
+                <td colspan="2">2519</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--販売一覧-->
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-1" scope="col">ID</th>
+        <th scope="col">売上額</th>
+        <th class="col-5" scope="col">販売日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="sale : ${sales}">
+        <th scope="row" th:text="${sale.id}"></th>
+        <td><a th:text="${sale.quantity}"></td>
+        <td th:text="${sale.saleDate}"></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <nav th:replace="common/layout::pagination"></nav>
+  
+</body>
+
+</html>

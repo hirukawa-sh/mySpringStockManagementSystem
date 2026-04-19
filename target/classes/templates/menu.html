@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/layout::head"></head>
+<body>
+<header th:replace="common/layout::header('メニュー')"></header>
+
+<main>
+<div class="container mt-4">
+    <div class="h1">
+        こんにちは、<span th:text="${username}">ユーザー</span> さん。
+    </div>
+    <p>メニューから、業務を選択してください。</p>
+</div>
+</main>
+
+</body>
+</html>

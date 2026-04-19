@@ -1,6 +1,12 @@
 com/example/App.class
-com/example/HelloController.class
-com/example/service/ItemService.class
-com/example/repository/ItemRepository.class
-com/example/controller/ItemController.class
-com/example/entity/Item.class
+com/example/demo/entity/Stock.class
+com/example/demo/entity/Item.class
+com/example/demo/repository/SaleRepository.class
+com/example/demo/controller/ItemController.class
+com/example/demo/controller/SaleController.class
+com/example/demo/entity/Sale.class
+com/example/demo/repository/StockRepository.class
+com/example/demo/controller/MenuController.class
+com/example/demo/controller/StockController.class
+com/example/demo/controller/LoginController.class
+com/example/demo/repository/ItemRepository.class
