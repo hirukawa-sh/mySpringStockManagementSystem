@@ -39,7 +39,15 @@ public class ItemController {
 
     // 更新
     @PostMapping("/items")
-    public String save(Item item){
+    public String save(
+        @Valid Item item,
+        BindingResult result,
+        Model model
+    ){
+        // エラーがある場合
+        if(result.hasErrors()){
+            return "edititem"; // 入力画面に戻る
+        }
         repo.save(item);
         return "redirect:/items";
     }
