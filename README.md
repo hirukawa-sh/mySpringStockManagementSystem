@@ -5,10 +5,10 @@
 
 ```mermaid
 erDiagram
-STOCK||--|{ITEM:id
-ORDER||--|{ORDER_DETAIL:order_id
+STOCK|o--o{ITEM:id
+ORDER|o--|{ORDER_DETAIL:order_id
 ORDER_DETAIL||--|{ITEM:item_id
-SALE||--|{SALE_DETAIL:order_id
+SALE|o--|{SALE_DETAIL:order_id
 SALE_DETAIL||--|{ITEM:item_id
 
 %% 在庫テーブル
