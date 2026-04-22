@@ -5,6 +5,7 @@
 
 ```mermaid
 erDiagram
+Items||--|{Stock:id
 Items {
 long id PK
 string name
