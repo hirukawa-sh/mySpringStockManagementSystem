@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class SalesController {
 
-    private final SaleRepository repo;
+    private final SalesRepository repo;
 
     public SalesController(SalesRepository repo) {
         this.repo = repo;
