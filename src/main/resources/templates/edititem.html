@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="common/layout::head"></head>
+<head th:replace="~{common/layout::head}"></head>
 
 <body>
     
-    <header th:replace="common/layout::header('商品登録')"></header>
+    <header th:replace="~{common/layout::header('商品登録')}"></header>
     
     <div class="container mt-4">
         <!--アラート-->
@@ -36,17 +36,17 @@
             <label class="form-label">
                 仕入価格
             </label>
-            <input type="text" class="form-control" th:field="*{purchasePrice}">
+            <input type="text" class="form-control" th:field="*{purchaseprice}">
             <!-- エラー表示 -->
-            <div class="text-danger" th:if="${#fields.hasErrors('purchasePrice')}" th:errors="*{purchasePrice}">
+            <div class="text-danger" th:if="${#fields.hasErrors('purchaseprice')}" th:errors="*{purchaseprice}">
         </div>
        <div class="mb-3">
            <label class="form-label">
                販売価格
            </label>
-           <input type="text" class="form-control" th:field="*{salesPrice}">
+           <input type="text" class="form-control" th:field="*{salesprice}">
            <!-- エラー表示 -->
-           <div class="text-danger" th:if="${#fields.hasErrors('salesPrice')}" th:errors="*{salesPrice}">
+           <div class="text-danger" th:if="${#fields.hasErrors('salesprice')}" th:errors="*{salesprice}">
         </div>
         <button type="button" class="btn btn-secondary" onclick="history.back()">戻る</button>
         <button type="submit" class="btn btn-primary" th:text="${item.id} == null ? '登録' : '更新'"></button>
