@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
+import jakarta.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ItemController {
@@ -63,12 +65,13 @@ public class ItemController {
     
     // 取得API
     @GetMapping("/api/Items")
-    public ItemDto getItemList(){
+    public List<ItemDto> getItemList(){
         return repo.findAll()
             .stream()
             .map(d -> new ItemDto(
+                d.getId(),
                 d.getName(),
-                d.getPurchase(),
+                d.getSupplier(),
                 d.getPurchasePrice(),
                 d.getSalesPrice()
             ))

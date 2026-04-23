@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Sales;
 import com.example.demo.repository.SalesRepository;
 import com.example.demo.repository.SalesDetailRepository;
 import com.example.demo.dto.SalesDto;
@@ -7,6 +8,7 @@ import com.example.demo.dto.SalesDetailDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @Controller
 public class SalesController {
@@ -38,6 +40,7 @@ public class SalesController {
             sales.getId(),
             sales.getSalesPerson(),
             sales.getTotalPrice(),
+            sales.getSalesDate(),
             details
         );
     }

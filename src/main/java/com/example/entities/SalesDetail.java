@@ -5,21 +5,19 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@IdClass(SalesDetailId.class)
 public class SalesDetail {
 
- @Id
- private Long salesId;
-
- @Id
- private Long itemId;
+ @EmbeddedId
+ private SalesDetailId id;
 
  @ManyToOne
- @JoinColumn(name = "sales_id", insertable = false, updatable = false)
+ @MapsId("salesId")
+ @JoinColumn(name = "sales_id")
  private Sales sales;
 
  @ManyToOne
- @JoinColumn(name = "item_id", insertable = false, updatable = false)
+ @MapsId("itemId")
+ @JoinColumn(name = "item_id")
  private Item item;
 
  private Integer quantity;
