@@ -38,17 +38,17 @@
             <label class="form-label">
                 仕入価格
             </label>
-            <input type="text" class="form-control" th:field="*{purchaseprice}">
+            <input type="text" class="form-control" th:field="*{purchasePrice}">
             <!-- エラー表示 -->
-            <div class="text-danger" th:if="${#fields.hasErrors('purchaseprice')}" th:errors="*{purchaseprice}">
+            <div class="text-danger" th:if="${#fields.hasErrors('purchasePrice')}" th:errors="*{purchasePrice}">
         </div>
        <div class="mb-3">
            <label class="form-label">
                販売価格
            </label>
-           <input type="text" class="form-control" th:field="*{salesprice}">
+           <input type="text" class="form-control" th:field="*{salesPrice}">
            <!-- エラー表示 -->
-           <div class="text-danger" th:if="${#fields.hasErrors('salesprice')}" th:errors="*{salesprice}">
+           <div class="text-danger" th:if="${#fields.hasErrors('salesPrice')}" th:errors="*{salesPrice}">
         </div>
         <button type="button" class="btn btn-secondary" onclick="history.back()">戻る</button>
         <button type="submit" class="btn btn-primary" th:text="${item.id} == null ? '登録' : '更新'"></button>
