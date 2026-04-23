@@ -9,11 +9,9 @@
     
     <div class="container mt-4">
         <!--アラート-->
-        <!--
         <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
             入力内容に誤りがあります
         </div>
-        -->
         
         <form th:object="${item}" th:action="@{/items}" method="post">
             <input type="hidden" th:field="*{id}">
