@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Item;
 import com.example.demo.repository.ItemRepository;
+import com.example.demo.dto.ItemDto;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

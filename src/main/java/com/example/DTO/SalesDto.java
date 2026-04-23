@@ -1,3 +1,5 @@
+package com.example.demo.dto;
+
 import com.example.demo.dto.SalesDetailDto;
 import java.time.LocalDateTime;
 
