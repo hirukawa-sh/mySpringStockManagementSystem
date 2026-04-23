@@ -1,0 +1,10 @@
+import com.example.demo.dto.OrderDetailDto;
+import java.time.LocalDateTime;
+
+public record OrderDto(
+    Long id,
+    String orderPerson,
+    Integer totalPrice,
+    LocalDateTime orderDate,
+    List<OrderDetailDto> details
+){}

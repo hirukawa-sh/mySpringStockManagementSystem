@@ -1,7 +1,8 @@
 ## SpringBoot の在庫管理システム習作
 - 商品管理…商品の登録、更新、削除
-- 販売管理…数量と販売価格の合計額算出、販売テーブルとの連携
-- 発注管理…在庫数量管理
+- 在庫管理…在庫数、合計仕入価格の算出
+- 販売管理…販売数、販売価格の算出
+- 発注管理…発注数、仕入価格の算出
 
 ```mermaid
 erDiagram
@@ -15,7 +16,7 @@ SALE_DETAIL||--|{ITEM:item_id
 STOCK {
   long id PK
   long item_id FK
-  int amount "在庫数"
+  int quantity "在庫数"
 }
 
 %% 発注テーブル
@@ -30,7 +31,7 @@ ORDER {
 ORDER_DETAIL {
   long order_id FK
   long item_id FK
-  int amount "発注数"
+  int quantity "発注数"
 }
 
 %% 販売テーブル
@@ -45,7 +46,7 @@ SALE {
 SALE_DETAIL {
   long sale_id FK
   long item_id FK
-  int amount "販売数"
+  int quantity "販売数"
 }
 
 %% 商品テーブル

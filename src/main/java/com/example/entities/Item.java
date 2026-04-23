@@ -1,9 +1,10 @@
 package com.example.demo.entity;
-
+import lombok.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @Entity
+@Data
 @Table(name = "items")
 public class Item {
 
@@ -20,18 +21,9 @@ public class Item {
     
     @NotNull(message = "価格は必須です")
     @Min(value = 0, message = "0以上で入力してください")
-    private Integer price;
-
-    // getter / setter
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    private Integer purchasePrice;
     
-    public String getSupplier() { return supplier; }
-    public void setSupplier(String supplier) { this.supplier = supplier; }
-
-    public Integer getPrice() { return price; }
-    public void setPrice(Integer price) { this.price = price; }
+    @NotNull(message = "価格は必須です")
+    @Min(value = 0, message = "0以上で入力してください")
+    private Integer salesPrice;
 }

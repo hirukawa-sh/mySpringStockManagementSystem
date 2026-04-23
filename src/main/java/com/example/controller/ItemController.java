@@ -62,4 +62,18 @@ public class ItemController {
         repo.deleteById(id);
         return "redirect:/items";
     }
+    
+    // 取得API
+    @GetMapping("/api/Items")
+    public ItemDto getItemList(){
+        return repo.findAll()
+            .stream()
+            .map(d -> new ItemDto(
+                d.getName(),
+                d.getPurchase(),
+                d.getPurchasePrice(),
+                d.getSalesPrice()
+            ))
+            .toList();
+    }
 }
