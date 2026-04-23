@@ -18,7 +18,7 @@
       <tr th:each="item : ${items}">
         <th scope="row" th:text="${item.id}"></th>
         <td><a th:href="@{/items/edit/{id}(id=${item.id})}" th:text="${item.name}"></a></td>
-        <td th:text="${item.price}"></td>
+        <td th:text="${item.salesPrice}"></td>
       </tr>
   </table>
   
