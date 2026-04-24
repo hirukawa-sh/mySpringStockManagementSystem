@@ -6,6 +6,9 @@
   
   <a class="btn btn-primary m-3" th:href="@{/items/new}">新規</a>
   
+  <div id="grid_item"></div>
+  
+  <!--
   <table class="table">
     <thead>
       <tr>
@@ -20,7 +23,8 @@
         <td><a th:href="@{/items/edit/{id}(id=${item.id})}" th:text="${item.name}"></a></td>
         <td th:text="${item.salesPrice}"></td>
       </tr>
-  </table>
+  </table
+  -->
   
   <nav th:replace="common/layout::pagination"></nav>
 

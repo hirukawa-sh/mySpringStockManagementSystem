@@ -64,7 +64,7 @@ public class ItemController {
     }
     
     // 取得API
-    @GetMapping("/api/Items")
+    @GetMapping("/api/items")
     public List<ItemDto> getItemList(){
         return repo.findAll()
             .stream()
