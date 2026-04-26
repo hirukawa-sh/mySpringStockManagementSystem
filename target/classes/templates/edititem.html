@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/layout::head}"></head>
+<body data-page="edititem">
+<header th:replace="~{common/layout::header('商品登録')}"></header>
 
-<head th:replace="common/layout::head"></head>
-
-<body>
-    
-    <header th:replace="common/layout::header('商品登録')"></header>
-    
-    <div class="container mt-4">
-        <!--アラート-->
-        <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
-            入力内容に誤りがあります
-        </div>
-        
-        <form th:object="${item}" th:action="@{/items}" method="post">
-            <input type="hidden" th:field="*{id}">
-            <div class="mb-3">
-                <label class="form-label">
-                    商品名
-                </label>
-                <input type="text" class="form-control" th:field="*{name}">
-                <!-- エラー表示 -->
-                <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
-            </div>
+<div class="container mt-4">
+    <form th:object="${item}" th:action="@{/items}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">
+                商品名
+            </label>
+            <input type="text" class="form-control" th:field="*{name}">
+            <!-- エラー表示 -->
+            <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">
@@ -30,19 +21,28 @@
             </label>
             <input type="text" class="form-control" th:field="*{supplier}">
             <!-- エラー表示 -->
-            <div class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}">
+            <div class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                仕入価格
+            </label>
+            <input type="text" class="form-control" th:field="*{purchasePrice}">
+            <!-- エラー表示 -->
+            <div class="text-danger" th:if="${#fields.hasErrors('purchasePrice')}" th:errors="*{purchasePrice}"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">
                 販売価格
             </label>
-            <input type="text" class="form-control" th:field="*{price}">
+            <input type="text" class="form-control" th:field="*{salesPrice}">
             <!-- エラー表示 -->
-            <div class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">
+            <div class="text-danger" th:if="${#fields.hasErrors('salesPrice')}" th:errors="*{salesPrice}"></div>
         </div>
-
-        <button type="button" class="btn btn-secondary" onclick="history.back()">戻る</button>
-        <button type="submit" class="btn btn-primary" th:text="${item.id} == null ? '登録' : '更新'"></button>
+        <div class="mb-3">
+            <button type="button" class="btn btn-secondary" onclick="history.back()">戻る</button>
+            <button type="submit" class="btn btn-primary" th:text="${item.id} == null ? '登録' : '更新'"></button>
+        </div>
     </form>
 
     <form th:if="${item.id} != null"

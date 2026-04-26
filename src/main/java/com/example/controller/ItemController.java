@@ -1,8 +1,8 @@
-package com.example.demo.controller;
+package com.example.controller;
 
-import com.example.demo.entity.Item;
-import com.example.demo.repository.ItemRepository;
-import com.example.demo.dto.ItemDto;
+import com.example.entity.Item;
+import com.example.repository.ItemRepository;
+import com.example.dto.ItemDto;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,20 +61,5 @@ public class ItemController {
     public String delete(@PathVariable Long id){
         repo.deleteById(id);
         return "redirect:/items";
-    }
-    
-    // 取得API
-    @GetMapping("/api/items")
-    public List<ItemDto> getItemList(){
-        return repo.findAll()
-            .stream()
-            .map(d -> new ItemDto(
-                d.getId(),
-                d.getName(),
-                d.getSupplier(),
-                d.getPurchasePrice(),
-                d.getSalesPrice()
-            ))
-            .toList();
     }
 }

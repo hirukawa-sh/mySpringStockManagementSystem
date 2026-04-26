@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.example.dto;
 
 public record ItemDto(
     Long id,

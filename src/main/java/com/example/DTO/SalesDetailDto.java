@@ -1,6 +1,8 @@
-package com.example.demo.dto;
+package com.example.dto;
 
 public record SalesDetailDto(
+    long id,
     String itemName,
+    Integer salesPrice,
     Integer quantity
 ){}

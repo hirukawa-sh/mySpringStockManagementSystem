@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.entity;
 import lombok.*;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -12,7 +12,6 @@ public class Sales {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String itemName;
     private Integer totalPrice;
     private String salesPerson;
     private LocalDateTime salesDate;

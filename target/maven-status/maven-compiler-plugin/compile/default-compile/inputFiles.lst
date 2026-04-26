@@ -7,6 +7,7 @@
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/repository/SalesDetailRepository.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/entities/Order.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/repository/ItemRepository.java
+/home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/rest/ItemApiController.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/DTO/ItemDto.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/controller/LoginController.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/repository/OrderDetailRepository.java
@@ -21,5 +22,6 @@
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/repository/OrderRepository.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/DTO/SalesDto.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/DTO/SalesDetailDto.java
+/home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/rest/SalesApiController.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/controller/SalesController.java
 /home/hirukawa_sh/mySpringStockManagementSystem/src/main/java/com/example/controller/MenuController.java

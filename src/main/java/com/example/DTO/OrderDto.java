@@ -1,6 +1,6 @@
-package com.example.demo.dto;
+package com.example.dto;
 
-import com.example.demo.dto.OrderDetailDto;
+import com.example.dto.OrderDetailDto;
 import java.time.LocalDateTime;
 import java.util.List;
 

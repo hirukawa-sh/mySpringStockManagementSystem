@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/layout::head"></head>
-<body>
-  <header th:replace="common/layout::header('商品一覧')"></header>
+<head th:replace="~{common/layout::head}"></head>
+<body data-page="items">
+  <header th:replace="~{common/layout::header('商品一覧')}"></header>
   
   <a class="btn btn-primary m-3" th:href="@{/items/new}">新規</a>
   
+  <div id="grid_item"></div>
+  
+  <!--
   <table class="table">
     <thead>
       <tr>
@@ -18,11 +21,12 @@
       <tr th:each="item : ${items}">
         <th scope="row" th:text="${item.id}"></th>
         <td><a th:href="@{/items/edit/{id}(id=${item.id})}" th:text="${item.name}"></a></td>
-        <td th:text="${item.price}"></td>
+        <td th:text="${item.salesPrice}"></td>
       </tr>
-  </table>
+  </table
   
   <nav th:replace="common/layout::pagination"></nav>
+  -->
 
 </body>
 </html>

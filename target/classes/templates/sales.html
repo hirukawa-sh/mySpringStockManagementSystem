@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/layout::head"></head>
-<body>
+<body data-page="sales">
   <header th:replace="common/layout::header('販売一覧')"></header>
   
   <!--詳細モーダル-->
@@ -18,58 +18,34 @@
             <tbody>
               <tr>
                 <th class="col-4">売上ID</th>
-                <td>1</td>
+                <td id="detail_id"></td>
               </tr>
               <tr>
                 <th>販売担当</th>
-                <td>山田 花子</td>
+                <td id="detail_salesperson"></td>
               </tr>
               <tr>
                 <th>販売日時</th>
-                <td>2025/8/10 10:34</td>
+                <td id="detail_salesdate"></td>
               </tr>
             </tbody>
           </table>
+
+          <div id="grid_detail_items"></div>
           
           <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">商品名</th>
-                <th class="col-2" scope="col">販売単価</th>
-                <th class="col-2" scope="col">数量</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>ポテトチップス うすしお</td>
-                <td>150</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>チョコレート</td>
-                <td>200</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>コーヒーキャラメル</td>
-                <td>180</td>
-                <td>8</td>
-              </tr>
-              <tr>
                 <th class="text-end" colspan="2">小計</th>
-                <td colspan="2">2290</td>
+                <td colspan="2" id="detail_subtotal"></td>
               </tr>
               <tr>
                 <th class="text-end" colspan="2">税額</th>
-                <td colspan="2">229</td>
+                <td colspan="2" id="detail_tax"></td>
               </tr>
               <tr>
                 <th class="text-end" colspan="2">合計</th>
-                <td colspan="2">2519</td>
+                <td colspan="2" id="detail_total"></td>
               </tr>
             </tbody>
           </table>
@@ -83,6 +59,8 @@
   </div>
   
   <!--販売一覧-->
+  <div id="grid_sales"></div>
+  <!--
   <table class="table">
     <thead>
       <tr>
@@ -101,6 +79,7 @@
   </table>
   
   <nav th:replace="common/layout::pagination"></nav>
+  -->
   
 </body>
 

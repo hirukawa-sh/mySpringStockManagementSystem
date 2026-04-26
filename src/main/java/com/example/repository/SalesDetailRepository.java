@@ -1,8 +1,8 @@
-package com.example.demo.repository;
+package com.example.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.demo.entity.SalesDetail;
-import com.example.demo.entity.SalesDetailId;
+import com.example.entity.SalesDetail;
+import com.example.entity.SalesDetailId;
 
 public interface SalesDetailRepository extends JpaRepository<SalesDetail, SalesDetailId> {
 }

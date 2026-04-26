@@ -1,10 +1,10 @@
-package com.example.demo.controller;
+package com.example.controller;
 
-import com.example.demo.entity.Sales;
-import com.example.demo.repository.SalesRepository;
-import com.example.demo.repository.SalesDetailRepository;
-import com.example.demo.dto.SalesDto;
-import com.example.demo.dto.SalesDetailDto;
+import com.example.entity.Sales;
+import com.example.repository.SalesRepository;
+import com.example.repository.SalesDetailRepository;
+import com.example.dto.SalesDto;
+import com.example.dto.SalesDetailDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,25 +23,5 @@ public class SalesController {
     public String list(Model model) {
         model.addAttribute("sales", repo.findAll());
         return "sales";
-    }
-    
-    @GetMapping("/api/sales/{id}")
-    public SalesDto getSales(@PathVariable Long id){
-        Sales sales = repo.findById(id).orElseThrow();
-    
-        List<SalesDetailDto> details = sales.getDetails().stream()
-            .map(d -> new SalesDetailDto(
-                d.getItem().getName(),
-                d.getQuantity()
-            ))
-            .toList();
-    
-        return new SalesDto(
-            sales.getId(),
-            sales.getSalesPerson(),
-            sales.getTotalPrice(),
-            sales.getSalesDate(),
-            details
-        );
     }
 }
