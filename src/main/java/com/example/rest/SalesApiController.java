@@ -53,7 +53,7 @@ public class SalesApiController {
         return sales.getDetails()
             .stream()
             .map(d -> new SalesDetailDto(
-                d.getId().getItemId(),
+                detailId.getItemId(),
                 d.getItem().getName(),
                 d.getItem().getSalesPrice(),
                 d.getQuantity()
