@@ -21,7 +21,7 @@ public class SalesApiController {
     private final SalesRepository repo;
     private final SalesDetailRepository detailRepo;
 
-    public SalesApiController(SalesRepository repo, SalesDetailRepositiry detailRepo){
+    public SalesApiController(SalesRepository repo, SalesDetailRepository detailRepo){
         this.repo = repo;
         this.detailRepo = detailRepo;
     }
