@@ -3,7 +3,6 @@ package com.example.rest;
 import com.example.entity.Sales;
 import com.example.entity.SalesDetailId;
 import com.example.repository.SalesRepository;
-import com.example.repository.SalesDetailRepository;
 import com.example.dto.SalesDto;
 import com.example.dto.SalesDetailDto;
 
@@ -19,11 +18,9 @@ import java.util.List;
 public class SalesApiController {
 
     private final SalesRepository repo;
-    private final SalesDetailRepository detailRepo;
 
-    public SalesApiController(SalesRepository repo, SalesDetailRepository detailRepo){
+    public SalesApiController(SalesRepository repo){
         this.repo = repo;
-        this.detailRepo = detailRepo;
     }
 
     @GetMapping("/sales")
