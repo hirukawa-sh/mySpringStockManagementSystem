@@ -52,7 +52,7 @@ public class SalesApiController {
     
     @GetMapping("/sales/{id}/details")
     public List<SalesDetailDto> getDetails(@PathVariable Long id){
-        return detailRepo.findDetails(id);
+        return detailRepo.findWithDetails(id);
     }
 
 /*
