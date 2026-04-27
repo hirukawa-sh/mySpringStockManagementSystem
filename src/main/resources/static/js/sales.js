@@ -51,7 +51,7 @@ async function showSalesDetailModal(salesId) {
     // 明細グリッド
     const detailItemsGrid = new gridjs.Grid({
       columns: [
-        { name: "商品名", id: "itemName", width: "100px" },
+        { name: "商品名", id: "itemName", width: "150px" },
         { name: "販売価格", id: "salesPrice", width: "100px" },
         { name: "数量", id: "quantity", width: "80px" }
       ],
@@ -64,7 +64,6 @@ async function showSalesDetailModal(salesId) {
       server: {
         url: `/api/sales/${salesId}/details`,
         then: data => data.map(detail => [
-          detail.id,
           detail.itemName,
           detail.salesPrice,
           detail.quantity

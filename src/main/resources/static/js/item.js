@@ -7,7 +7,7 @@ function item() {
             return gridjs.html(`<a href="items/edit/${cell}">${cell}</a>`);
           }
       },
-      { name: "商品名", id: "name", width: "120px" },
+      { name: "商品名", id: "name", width: "150px" },
       { name: "販売価格", id: "salesPrice", width: "80px" }
     ],
     pagination: {
