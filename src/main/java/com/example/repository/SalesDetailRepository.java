@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.entity.Sales;
 import com.example.entity.SalesDetail;
 import com.example.entity.SalesDetailId;
+import java.util.*;
 
 public interface SalesDetailRepository extends JpaRepository<SalesDetail, SalesDetailId> {
   @Query("""
