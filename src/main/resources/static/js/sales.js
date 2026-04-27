@@ -3,7 +3,7 @@ function sales() {
   // 一覧グリッド
   const salesGrid = new gridjs.Grid({
     columns: [
-      { name: "ID", id: "id", formatter: (cell) => {
+      { name: "ID", id: "id", width: "60px", formatter: (cell) => {
           return gridjs.h("a", {
             text: cell,
             href: "#",
@@ -14,8 +14,8 @@ function sales() {
           });
         },
       },
-      { name: "販売価格", id: "totalPrice" },
-      { name: "販売日時", id: "salesDate" }
+      { name: "販売価格", id: "totalPrice", width: "100px" },
+      { name: "販売日時", id: "salesDate", width: "100px" }
     ],
     pagination: {
       limit: 10
@@ -51,10 +51,9 @@ async function showSalesDetailModal(salesId) {
     // 明細グリッド
     const detailItemsGrid = new gridjs.Grid({
       columns: [
-        { name: "ID", id: "id" },
-        { name: "商品名", id: "itemName" },
-        { name: "販売価格", id: "salesPrice" },
-        { name: "数量", id: "quantity" }
+        { name: "商品名", id: "itemName", width: "100px" },
+        { name: "販売価格", id: "salesPrice", width: "100px" },
+        { name: "数量", id: "quantity", width: "80px" }
       ],
       pagination: {
         limit: 10
