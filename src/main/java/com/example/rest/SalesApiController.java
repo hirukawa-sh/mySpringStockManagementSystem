@@ -52,7 +52,16 @@ public class SalesApiController {
     
     @GetMapping("/sales/{id}/details")
     public List<SalesDetailDto> getDetails(@PathVariable Long id){
-        return detailRepo.findWithDetails(id);
+        Sales sales = repo.findWithDetails(id).orElseThrow();
+        return sales.getDetails()
+            .stream()
+            .map(d -> new SalesDetailDto(
+                d.getItem.getId(),
+                d.getItem().getName(),
+                d.getItem().getSalesPrice(),
+                d.getQuantity()
+            ))
+            .toList();
     }
 
 /*
