@@ -3,6 +3,7 @@ package com.example.rest;
 import com.example.entity.Sales;
 import com.example.entity.SalesDetailId;
 import com.example.repository.SalesRepository;
+import com.example.repository.SalesDetailRepository;
 import com.example.dto.SalesDto;
 import com.example.dto.SalesDetailDto;
 
@@ -18,9 +19,11 @@ import java.util.List;
 public class SalesApiController {
 
     private final SalesRepository repo;
+    private final SalesDetailRepository detailRepo;
 
-    public SalesApiController(SalesRepository repo){
+    public SalesApiController(SalesRepository repo, SalesDetailRepositiry detailRepo){
         this.repo = repo;
+        this.detailRepo = detailRepo;
     }
 
     @GetMapping("/sales")
@@ -46,18 +49,25 @@ public class SalesApiController {
             sales.getSalesDate()
         );
     }
+    
+    @GetMapping("/sales/{id}/details")
+    public List<SalesDetailDto> getDetails(@PathVariable Long id){
+        return detailRepo.findDetails(id);
+    }
 
+/*
     @GetMapping("/sales/{id}/details")
     public List<SalesDetailDto> getSalesDetailsBySalesId(@PathVariable Long id) {
         Sales sales = repo.findById(id).orElseThrow();
         return sales.getDetails()
             .stream()
             .map(d -> new SalesDetailDto(
-                d.getItem().getId(),
+                d.getItem.getId(),
                 d.getItem().getName(),
                 d.getItem().getSalesPrice(),
                 d.getQuantity()
             ))
             .toList();
     }
+    */
 }
