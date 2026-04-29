@@ -1,5 +1,21 @@
 // 商品管理
-function item() {
+async function item() {
+  var itemData = [];
+
+  // データの取得
+  await fetch("/api/items")
+    .then(response => response.json())
+    .then(data => {
+      itemData = data.map(item => [
+        item.id,
+        item.name,
+        item.salesPrice
+      ]);
+    })
+    .catch(error => {
+      console.error("Error fetching items:", error);
+    });
+  
   // 一覧グリッド
   const itemGrid = new gridjs.Grid({
     columns: [
@@ -16,14 +32,7 @@ function item() {
     sort: true,
     search: true,
     resizable: true,
-    server: {
-      url: "/api/items",
-      then: data => data.map(item => [
-        item.id,
-        item.name,
-        item.salesPrice
-      ])
-    }
+    data: itemData
   }).render(document.getElementById("grid_item"));
 }
 

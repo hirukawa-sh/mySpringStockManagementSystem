@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.repository.StockRepository;
+import com.example.repository.ItemRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,15 +8,16 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class StockController {
 
-    private final StockRepository repo;
+    private final ItemRepository repo;
 
-    public StockController(StockRepository repo) {
+    public StockController(ItemRepository repo) {
         this.repo = repo;
     }
 
+    // 一覧表示
     @GetMapping("/stock")
-    public String list(Model model) {
-        model.addAttribute("stocks", repo.findAll());
+    public String stock(Model model){
+        model.addAttribute("items", repo.findAllWithStock());
         return "stock";
     }
 }

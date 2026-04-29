@@ -1,6 +1,8 @@
+/app/src/main/java/com/example/controller/OrderController.java
 /app/src/main/java/com/example/entities/SalesDetailId.java
 /app/src/main/java/com/example/DTO/SalesDto.java
 /app/src/main/java/com/example/entities/OrderDetail.java
+/app/src/main/java/com/example/DTO/OrderRequestDto.java
 /app/src/main/java/com/example/controller/SalesController.java
 /app/src/main/java/com/example/repository/SalesDetailRepository.java
 /app/src/main/java/com/example/repository/ItemRepository.java
@@ -9,6 +11,7 @@
 /app/src/main/java/com/example/DTO/OrderDetailDto.java
 /app/src/main/java/com/example/rest/ItemApiController.java
 /app/src/main/java/com/example/entities/Stock.java
+/app/src/main/java/com/example/service/OrderService.java
 /app/src/main/java/com/example/repository/OrderDetailRepository.java
 /app/src/main/java/com/example/entities/Item.java
 /app/src/main/java/com/example/entities/Sales.java
@@ -18,6 +21,7 @@
 /app/src/main/java/com/example/App.java
 /app/src/main/java/com/example/controller/ItemController.java
 /app/src/main/java/com/example/controller/StockController.java
+/app/src/main/java/com/example/DTO/ItemStockDto.java
 /app/src/main/java/com/example/DTO/SalesDetailDto.java
 /app/src/main/java/com/example/entities/Order.java
 /app/src/main/java/com/example/DTO/OrderDto.java

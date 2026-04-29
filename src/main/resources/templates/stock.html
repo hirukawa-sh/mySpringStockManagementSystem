@@ -3,7 +3,9 @@
 <head th:replace="common/layout::head"></head>
 <body data-page="stock">
     <header th:replace="common/layout::header('在庫一覧')"></header>
-    
+
+    <form th:action="@{/order}" method="post">
+
     <div class="modal fade" id="confirmOrders" tabindex="-1" aria-labelledby="confirmOrdersLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -16,7 +18,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                    <button type="button" class="btn btn-primary">送信する</button>
+                    <button type="submit" class="btn btn-primary">送信する</button>
                 </div>
             </div>
         </div>
@@ -30,15 +32,17 @@
                 <th class="col-1" scope="col">ID</th>
                 <th scope="col">商品名</th>
                 <th scope="col">在庫</th>
+                <th scope="col">在庫金額</th>
                 <th class="col-2" scope="col">発注</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="stock : ${stocks}">
-                <th scope="row "th:text="${stock.id}"></th>
-                <td th:text="${stock.itemName}"></td>
-                <td th:text="${stock.quantity}"></td>
-                <td><input type="text" class="form-control" value="0"></td>
+            <tr th:each="item : ${items}">
+                <th scope="row "th:text="${item.id}"></th>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${item.purchasePrice * item.quantity}"></td>
+                <td><input type="number" th:name="'order_' + ${item.id}" class="form-control" value="0"></td>
             </tr>
         </tbody>
     </table>

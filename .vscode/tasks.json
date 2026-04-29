@@ -4,18 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "spring-boot-run",
-            "type": "shell",
-            "command": "mvn spring-boot:run",
-            "group": "build"
-        },
-        {
-            "label": "spring-boot-run:debug",
-            "type": "shell",
-            "command": "./mvnw spring-boot:run",
-            "group": "build"
-        },
-        {
             "label": "docker-compose up",
             "type": "shell",
             "command": "docker compose up",
@@ -26,6 +14,12 @@
             "type": "shell",
             "command": "docker compose down",
             "group": "build"
-        }
+        },
+        {
+            "label": "docker-compose restart",
+            "type": "shell",
+            "command": "docker compose restart",
+            "group": "build"
+        },
     ]
 }
