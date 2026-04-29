@@ -3,12 +3,12 @@ function item() {
   // 一覧グリッド
   const itemGrid = new gridjs.Grid({
     columns: [
-      { name: "ID", id: "id", formatter: (cell) => {
+      { name: "ID", id: "id", width: "60px", formatter: (cell) => {
             return gridjs.html(`<a href="items/edit/${cell}">${cell}</a>`);
           }
       },
-      { name: "商品名", id: "name" },
-      { name: "販売価格", id: "salesPrice" }
+      { name: "商品名", id: "name", width: "150px" },
+      { name: "販売価格", id: "salesPrice", width: "80px" }
     ],
     pagination: {
       limit: 10

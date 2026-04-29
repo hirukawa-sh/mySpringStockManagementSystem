@@ -13,15 +13,11 @@
         <div class="mb-3">
             <label>ユーザー名</label>
             <input type="text" name="username" class="form-control">
-            <!-- エラー表示 -->
-            <div class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
         </div>
 
         <div class="mb-3">
             <label>パスワード</label>
             <input type="password" name="password" class="form-control">
-            <!-- エラー表示 -->
-            <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         </div>
 
         <button type="submit" class="btn btn-primary">ログイン</button>

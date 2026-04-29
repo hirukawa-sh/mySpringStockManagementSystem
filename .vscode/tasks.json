@@ -9,5 +9,23 @@
             "command": "mvn spring-boot:run",
             "group": "build"
         },
+        {
+            "label": "spring-boot-run:debug",
+            "type": "shell",
+            "command": "./mvnw spring-boot:run",
+            "group": "build"
+        },
+        {
+            "label": "docker-compose up",
+            "type": "shell",
+            "command": "docker compose up",
+            "group": "build"
+        },
+        {
+            "label": "docker-compose down",
+            "type": "shell",
+            "command": "docker compose down",
+            "group": "build"
+        }
     ]
 }
