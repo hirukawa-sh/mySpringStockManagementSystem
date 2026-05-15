@@ -72,9 +72,15 @@ async function showSalesDetailModal(salesId) {
     }).render(document.getElementById("grid_detail_items"));
 
     // 小計、税額、合計の表示
-    document.getElementById("detail_subtotal").textContent = data.subtotal;
-    document.getElementById("detail_tax").textContent = data.tax;
-    document.getElementById("detail_total").textContent = data.total;
+    const TAX_RATE = 0.1;
+    const subtotal = data.reduce(detail => {
+      detail.salesPrice * detail.quantity
+    });
+    const tax = subtotal * TAX_RATE;
+    const total = subtotal + tax;
+    document.getElementById("detail_subtotal").textContent = subtotal;
+    document.getElementById("detail_tax").textContent = tax;
+    document.getElementById("detail_total").textContent = total;
   } catch (error) {
     console.error("販売詳細の取得に失敗:", error);
   }
