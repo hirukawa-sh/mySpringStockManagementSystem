@@ -29,7 +29,12 @@ async function app() {
             const sales = await import('./sales.js');
             await sales.default();
             break;
-
+            
+        case "editsales":
+            const editsales = await import('./editsales.js');
+            await editsales.default();
+        break;
+        
         case "stock":
             const stock = await import('./stock.js');
             await stock.default();

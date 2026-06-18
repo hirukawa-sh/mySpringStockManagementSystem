@@ -19,6 +19,7 @@ public class SalesController {
         this.repo = repo;
     }
 
+    // 表示
     @GetMapping("/sales")
     public String list(Model model) {
         model.addAttribute("sales", repo.findAll());

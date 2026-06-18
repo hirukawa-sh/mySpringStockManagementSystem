@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/layout::head}"></head>
+<body data-page="editsales">
+<header th:replace="~{common/layout::header('販売登録')}"></header>
+
+<div class="container mt-4">
+  <form th:object="${sales}" th:action="@{/sales}" method="post">
+    <div class="mb-3">
+      <label class="form-label">
+        売上ID
+      </label>
+      <label th:text="*{id}"></label>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">
+        販売担当
+      </label>
+      <input type="text" class="form-control" th:field="*{salesPerson}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">
+        販売日時
+      </label>
+      <input type="datetime-local" class="form-control" th:field="*{salesDate}">
+    </div>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="col-1">ID</th>
+          <th scope="col">商品名</th>
+          <th scope="col">販売単価</th>
+          <th scope="col" class="col-2">数量</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="number" class="form-control"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-primary" type="submit">登録</button>
+      <button class="btn btn-secondary" type="button">追加</button>
+    </div>
+  </form>
+  
+      <form th:if="${item.id} != null"
+            class="d-flex justify-content-end"
+            th:action="@{/items/delete/{id}(id=${item.id})}"
+            method="post"
+            onsubmit="return confirm('削除しますか？');">
+            <button type="submit" class="btn btn-danger">削除</button>
+    </form>
+</div>
+
+</body>
+</html>
