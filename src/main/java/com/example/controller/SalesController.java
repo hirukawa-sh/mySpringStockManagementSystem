@@ -31,6 +31,13 @@ public class SalesController {
     @GetMapping("/new")
     public String newForm(Model model) {
         model.addAttribute("sales", repo.findAll());
-        return "sales";
+        return "editsales";
+    }
+    
+    // 編集
+    @GetMapping("/edit/{id}")
+    public String editForm(@PathVariable Long id, Model model) {
+        model.addAttribute("sales", repo.findById(id).orElse(new Item());
+        return "editsales";
     }
 }
