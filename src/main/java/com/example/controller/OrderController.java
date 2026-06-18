@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@RequestMapping("order")
 public class OrderController {
 
     private final OrderService orderService;
@@ -17,7 +18,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @PostMapping("/order")
+    @PostMapping
     public String order(@RequestParam Map<String, String> params){
 
         List<OrderRequestDto> requests = params.entrySet().stream()

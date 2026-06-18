@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/sales")
 public class SalesController {
 
     private final SalesRepository repo;
@@ -19,8 +20,15 @@ public class SalesController {
         this.repo = repo;
     }
 
-    // 表示
-    @GetMapping("/sales")
+    // 一覧
+    @GetMapping
+    public String list(Model model) {
+        model.addAttribute("sales", repo.findAll());
+        return "sales";
+    }
+    
+    // 新規
+    @GetMapping("/new")
     public String list(Model model) {
         model.addAttribute("sales", repo.findAll());
         return "sales";

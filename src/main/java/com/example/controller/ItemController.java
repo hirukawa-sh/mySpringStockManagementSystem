@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/items")
 public class ItemController {
 
     private final ItemRepository repo;
@@ -21,28 +22,28 @@ public class ItemController {
     }
 
     // 一覧
-    @GetMapping("/items")
+    @GetMapping
     public String list(Model model) {
         model.addAttribute("items", repo.findAll());
         return "items";
     }
 
     // 新規
-    @GetMapping("/items/new")
+    @GetMapping("/new")
     public String newForm(Model model){
         model.addAttribute("item", new Item());
         return "edititem";
     }
 
     // 編集
-    @GetMapping("/items/edit/{id}")
+    @GetMapping("/edit/{id}")
     public String edit(@PathVariable Long id, Model model){
         model.addAttribute("item", repo.findById(id).orElse(new Item()));
         return "edititem";
     }
 
     // 更新
-    @PostMapping("/items")
+    @PostMapping
     public String save(
         @Valid Item item,
         BindingResult result,

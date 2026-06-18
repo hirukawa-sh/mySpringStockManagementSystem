@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("stock")
 public class StockController {
 
     private final ItemRepository repo;
@@ -15,7 +16,7 @@ public class StockController {
     }
 
     // 一覧表示
-    @GetMapping("/stock")
+    @GetMapping
     public String stock(Model model){
         model.addAttribute("items", repo.findAllWithStock());
         return "stock";
