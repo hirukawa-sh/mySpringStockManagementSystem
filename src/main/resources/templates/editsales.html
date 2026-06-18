@@ -49,9 +49,9 @@
     </div>
   </form>
   
-      <form th:if="${item.id} != null"
+      <form th:if="${sales.id} != null"
             class="d-flex justify-content-end"
-            th:action="@{/items/delete/{id}(id=${item.id})}"
+            th:action="@{/sales/delete/{id}(id=${sales.id})}"
             method="post"
             onsubmit="return confirm('削除しますか？');">
             <button type="submit" class="btn btn-danger">削除</button>
