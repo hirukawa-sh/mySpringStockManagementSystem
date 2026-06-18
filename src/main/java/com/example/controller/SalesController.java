@@ -29,7 +29,7 @@ public class SalesController {
     
     // 新規
     @GetMapping("/new")
-    public String list(Model model) {
+    public String newForm(Model model) {
         model.addAttribute("sales", repo.findAll());
         return "sales";
     }
