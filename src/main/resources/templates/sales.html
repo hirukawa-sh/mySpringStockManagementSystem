@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/layout::head"></head>
 <body data-page="sales">
-  <header th:replace="common/layout::header('販売一覧')"></header>
+  <header th:replace="~{common/layout::header('販売一覧')}"></header>
   
   <!--詳細モーダル-->
   <div class="modal fade" id="salesDetail" tabindex="-1" aria-labelledby="salesDetailLabel" aria-hidden="true">

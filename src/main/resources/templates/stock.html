@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/layout::head"></head>
 <body data-page="stock">
-    <header th:replace="common/layout::header('在庫一覧')"></header>
+    <header th:replace="~{common/layout::header('在庫一覧')}"></header>
 
     <form th:action="@{/order}" method="post">
 
