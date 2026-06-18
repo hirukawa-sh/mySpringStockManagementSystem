@@ -54,13 +54,13 @@ public class ItemController {
             return "edititem"; // 入力画面に戻る
         }
         repo.save(item);
-        return "redirect:/";
+        return "redirect:/items";
     }
     
     // 削除
-    @PostMapping("/items/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id){
         repo.deleteById(id);
-        return "redirect:/";
+        return "redirect:/items";
     }
 }
