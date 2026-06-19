@@ -45,6 +45,5 @@ async function app() {
 }
 
 window.common = common;
-console.log(common);
 
 app();
