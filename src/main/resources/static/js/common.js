@@ -1,6 +1,6 @@
 function common() {
   // テーブル行追加
-  function addRow(query) {
+  window.addRow = function(query) {
     const table = document.querySelector(query);
     if (!table && table.tagName != "TABLE") {
       console.error(`${elm}: table is not found`);
@@ -10,7 +10,7 @@ function common() {
   }
   
   // テーブル行削除
-  function deleteRow(elm) {
+  window.deleteRow = function(elm) {
     const row = elm.closest("tr");
     if (!row) {
       console.error(`${elm}: row is not found`);
