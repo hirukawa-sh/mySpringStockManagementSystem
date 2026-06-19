@@ -44,4 +44,6 @@ async function app() {
     }
 }
 
+window.common = common;
+
 app();
