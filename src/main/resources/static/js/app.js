@@ -1,3 +1,5 @@
+import * as 'common' from './common.js'
+
 // ページの識別子を取得
 const page = document.body.dataset.page;
 

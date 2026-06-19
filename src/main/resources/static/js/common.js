@@ -1,3 +1,4 @@
+function common() {
   // テーブル行追加
   window.addRow = function(query) {
     const table = document.querySelector(query);
@@ -17,3 +18,6 @@
     }
     table.body[0].rows.remove(row);
   }
+}
+
+export default common;
