@@ -9,7 +9,7 @@
 </nav>
 
 <div class="container mt-5">
-    <form th:action="@{/login}" th:object="{loginViewDto}" method="post">
+    <form th:action="@{/login}" th:object="${loginViewDto}" method="post">
          <div class="alert alert-danger"
              th:if="${error}"
              th:text="${error}">
