@@ -9,15 +9,24 @@
 </nav>
 
 <div class="container mt-5">
-    <form th:action="@{/login}" method="post">
+    <form th:action="@{/login}" th:object="{loginViewDto}" method="post">
+         <div class="alert alert-danger"
+             th:if="${error}"
+             th:text="${error}">
+        </div>
+    
         <div class="mb-3">
             <label>ユーザー名</label>
-            <input type="text" name="username" class="form-control">
+            <input type="text"
+                th:field="*{username}"
+                class="form-control">
         </div>
 
         <div class="mb-3">
             <label>パスワード</label>
-            <input type="password" name="password" class="form-control">
+            <input type="password"
+                th:field="*{password}"
+                class="form-control">
         </div>
 
         <button type="submit" class="btn btn-primary">ログイン</button>
