@@ -29,7 +29,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public String login(
-            @ModelAttribute LoginDto loginDto,
+            @ModelAttribute LoginViewDto loginViewDto,
             HttpSession session,
             Model model) {
 
