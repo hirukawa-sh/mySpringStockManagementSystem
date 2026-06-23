@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.dto.view.LoginViewDto;
-import com.example.entity.User;
-import com.example.repository.UserRepository;
+import com.example.entity.Users;
+import com.example.repository.UsersRepository;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class LoginController {
 
-    private final UserRepository userRepository;
+    private final UsersRepository usersRepository;
 
     @GetMapping("/")
     public String loginForm(Model model) {
@@ -33,22 +33,22 @@ public class LoginController {
             HttpSession session,
             Model model) {
 
-        Optional<User> userOpt =
-                userRepository.findByName(loginViewDto.getUsername());
+        Optional<Users> usersOpt =
+                usersRepository.findByName(loginViewDto.getUsername());
 
-        if (userOpt.isEmpty()) {
+        if (usersOpt.isEmpty()) {
             model.addAttribute("error", "ユーザーが存在しません");
             return "login";
         }
 
-        User user = userOpt.get();
+        Users users = usersOpt.get();
 
-        if (!user.getPassword().equals(loginViewDto.getPassword())) {
+        if (!users.getPassword().equals(loginViewDto.getPassword())) {
             model.addAttribute("error", "パスワードが違います");
             return "login";
         }
 
-        session.setAttribute("loginUser", user);
+        session.setAttribute("loginUser", users);
 
         return "redirect:/menu";
     }
