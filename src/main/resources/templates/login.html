@@ -9,7 +9,7 @@
 </nav>
 
 <div class="container mt-5">
-    <form th:action="@{/login}" th:object="${loginViewDto}" method="post">
+    <form th:action="@{/login}" th:object="${request}" method="post">
          <div class="alert alert-danger"
              th:if="${error}"
              th:text="${error}">
@@ -18,7 +18,7 @@
         <div class="mb-3">
             <label>ユーザー名</label>
             <input type="text"
-                th:field="*{username}"
+                th:field="*{name}"
                 class="form-control">
         </div>
 
