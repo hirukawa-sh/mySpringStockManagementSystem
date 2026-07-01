@@ -17,7 +17,7 @@ public class LoginService {
 
     public UsersDto login(LoginRequestDto request) {
 
-        Users user = usersRepository.findByName(request.username())
+        Users user = usersRepository.findByName(request.name())
                 .orElseThrow(() ->
                         new IllegalArgumentException("ユーザーが存在しません"));
 
