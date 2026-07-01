@@ -1,6 +1,6 @@
 package com.example.dto;
 
-public recode LoginRequestDto(
+public record LoginRequestDto(
     String name,
     String password
 ){}
