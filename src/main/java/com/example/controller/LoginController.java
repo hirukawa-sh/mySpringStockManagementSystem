@@ -30,7 +30,7 @@ public class LoginController {
             @ModelAttribute LoginRequestDto request,
             HttpSession session,
             Model model) {
-        ServiceResult<UsersDto> result = loginService.login(request);
+        ServiceResultDto<UsersDto> result = loginService.login(request);
 
         if (!result.success()) {
             model.addAttribute("error", result.message());

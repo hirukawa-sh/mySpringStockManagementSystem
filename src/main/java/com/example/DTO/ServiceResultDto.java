@@ -1,6 +1,6 @@
 package com.example.dto;
 
-public record ServiceResult<T>(
+public record ServiceResultDto<T>(
     boolean success,
     T data,
     String message
