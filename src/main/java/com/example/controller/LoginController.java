@@ -21,7 +21,7 @@ public class LoginController {
 
     @GetMapping("/")
     public String loginForm(Model model) {
-        model.addAttribute("loginRequest", new LoginRequestDto("", ""));
+        model.addAttribute("request", new LoginRequestDto("", ""));
         return "login";
     }
 
