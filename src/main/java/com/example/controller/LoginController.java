@@ -36,6 +36,7 @@ public class LoginController {
     
         // 入力チェック
         if (bindingResult.hasErrors()) {
+            model.addAttribute("error", "入力エラーがあります");
             return "login";
         }
     
