@@ -21,23 +21,34 @@ public class LoginController {
 
     private final LoginService loginService;
 
-    @GetMapping("/")
-    public String loginForm(Model model) {
-        model.addAttribute("request", new LoginRequestDto("", ""));
-        return "login";
-    }
+        @GetMapping("/")
+        public String loginForm(Model model) {
+        
+            if (!model.containsAttribute("loginRequest")) {
+                model.addAttribute("loginRequest", new LoginRequestDto("", ""));
+            }
+        
+            return "login";
+        }
 
     @PostMapping("/login")
     public String login(
             @Valid @ModelAttribute("loginRequest") LoginRequestDto request,
             BindingResult bindingResult,
             HttpSession session,
-            Model model) {
+            RedirectAttributes redirectAttributes) {
     
         // 入力チェック
         if (bindingResult.hasErrors()) {
-            model.addAttribute("error", "入力エラーがあります");
-            return "login";
+            
+            redirectAttributes.addFlashAttribute("loginRequest", request);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.loginRequest",
+                    bindingResult);
+        
+            redirectAttributes.addFlashAttribute("error", "入力エラーがあります");
+        
+            return "redirect:/";
         }
     
         // 認証
@@ -45,8 +56,11 @@ public class LoginController {
                 loginService.login(request);
     
         if (!loginResult.success()) {
-            model.addAttribute("error", loginResult.message());
-            return "login";
+        
+            redirectAttributes.addFlashAttribute("loginRequest", request);
+            redirectAttributes.addFlashAttribute("error", loginResult.message());
+        
+            return "redirect:/";
         }
     
         session.setAttribute("loginUser", loginResult.data());
