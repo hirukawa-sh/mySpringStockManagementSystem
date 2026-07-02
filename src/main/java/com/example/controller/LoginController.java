@@ -27,17 +27,27 @@ public class LoginController {
 
     @PostMapping("/login")
     public String login(
-            @ModelAttribute LoginRequestDto request,
+            @Valid @ModelAttribute("loginRequest") LoginRequestDto request,
+            BindingResult bindingResult,
             HttpSession session,
             Model model) {
-        ServiceResultDto<UsersDto> result = loginService.login(request);
-
-        if (!result.success()) {
-            model.addAttribute("error", result.message());
+    
+        // 入力チェック
+        if (bindingResult.hasErrors()) {
             return "login";
         }
-        
-        session.setAttribute("loginUser", result.data());
+    
+        // 認証
+        ServiceResultDto<UsersDto> loginResult =
+                loginService.login(request);
+    
+        if (!loginResult.success()) {
+            model.addAttribute("error", loginResult.message());
+            return "login";
+        }
+    
+        session.setAttribute("loginUser", loginResult.data());
+    
         return "redirect:/menu";
     }
 }
