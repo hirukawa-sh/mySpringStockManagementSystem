@@ -13,10 +13,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class LoginService {
 
-    private final UsersRepository usersRepository;
+    private final UsersRepository repo;
 
     public ServiceResultDto<UsersDto> login(LoginRequestDto request) {
-        Optional<Users> user = repo.findByName(request.username());
+        Optional<Users> user = repo.findByName(request.name());
     
         if (user.isEmpty()) {
             return new ServiceResultDto<UsersDto>(false, null, "ユーザーが存在しません");
