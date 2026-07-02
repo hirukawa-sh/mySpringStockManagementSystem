@@ -37,7 +37,7 @@ public class LoginController {
             return "login";
         }
         
-        session.setAttribute("loginUser", result.data();
+        session.setAttribute("loginUser", result.data());
         return "redirect:/menu";
     }
 }
