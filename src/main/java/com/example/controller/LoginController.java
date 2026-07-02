@@ -30,10 +30,14 @@ public class LoginController {
             @ModelAttribute LoginRequestDto request,
             HttpSession session,
             Model model) {
-    
-        UsersDto loginUser = loginService.login(request);
-        session.setAttribute("loginUser", loginUser);
-    
+        ServiceResult<UsersDto> result = loginService.login(request);
+
+        if (!result.success()) {
+            model.addAttribute("error", result.message());
+            return "login";
+        }
+        
+        session.setAttribute("loginUser", result.data();
         return "redirect:/menu";
     }
 }

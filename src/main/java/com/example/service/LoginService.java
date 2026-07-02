@@ -15,19 +15,21 @@ public class LoginService {
 
     private final UsersRepository usersRepository;
 
-    public UsersDto login(LoginRequestDto request) {
-
-        Users user = usersRepository.findByName(request.name())
-                .orElseThrow(() ->
-                        new IllegalArgumentException("ユーザーが存在しません"));
-
-        if (!user.getPassword().equals(request.password())) {
-            throw new IllegalArgumentException("パスワードが違います");
+    public ServiceResult<UsersDto> login(LoginRequestDto request) {
+        Optional<Users> user = repo.findByName(request.username());
+    
+        if (user.isEmpty()) {
+            return new ServiceResult<UsersDto>(false, null, "ユーザーが存在しません");
         }
-
-        return new UsersDto(
-                user.getId(),
-                user.getName()
-        );
+    
+        if (!user.get().getPassword().equals(request.password())) {
+            return new ServiceResult<UsersDto>(false, null, "パスワードが違います");
+        }
+    
+        UsersDto dto = new UsersDto(
+                user.get().getId(),
+                user.get().getName());
+    
+        return new ServiceResult<UsersDto>(true, dto, null);
     }
 }
