@@ -10,7 +10,7 @@
 
 <div class="container mt-5">
     <form th:action="@{/login}" th:object="${request}" method="post">
-         <div class="alert alert-danger"
+        <div class="alert alert-danger"
              th:if="${error}"
              th:text="${error}">
         </div>
