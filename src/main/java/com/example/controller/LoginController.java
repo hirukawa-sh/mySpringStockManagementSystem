@@ -32,40 +32,48 @@ public class LoginController {
         
             return "login";
         }
+        
+        @GetMapping("/logout")
+        public String logout(HttpSession session) {
+        
+            session.invalidate();
+        
+            return "redirect:/";
+        }
 
-    @PostMapping("/login")
-    public String login(
-            @Valid @ModelAttribute("loginRequest") LoginRequestDto request,
-            BindingResult bindingResult,
-            HttpSession session,
-            RedirectAttributes redirectAttributes) {
-    
-        // 入力チェック
-        if (bindingResult.hasErrors()) {
+        @PostMapping("/login")
+        public String login(
+                @Valid @ModelAttribute("loginRequest") LoginRequestDto request,
+                BindingResult bindingResult,
+                HttpSession session,
+                RedirectAttributes redirectAttributes) {
+        
+            // 入力チェック
+            if (bindingResult.hasErrors()) {
+                
+                redirectAttributes.addFlashAttribute("loginRequest", request);
+                redirectAttributes.addFlashAttribute(
+                        "org.springframework.validation.BindingResult.loginRequest",
+                        bindingResult);
             
-            redirectAttributes.addFlashAttribute("loginRequest", request);
-            redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.loginRequest",
-                    bindingResult);
+                redirectAttributes.addFlashAttribute("error", "入力エラーがあります");
+            
+                return "redirect:/";
+            }
         
-            redirectAttributes.addFlashAttribute("error", "入力エラーがあります");
+            // 認証
+            ServiceResultDto<UsersDto> loginResult =
+                    loginService.login(request);
         
-            return "redirect:/";
+            if (!loginResult.success()) {
+            
+                redirectAttributes.addFlashAttribute("loginRequest", request);
+                redirectAttributes.addFlashAttribute("error", loginResult.message());
+            
+                return "redirect:/";
+            }
+            SessionUtil.setLoginSession(session, loginResult);
+        
+            return "redirect:/menu";
         }
-    
-        // 認証
-        ServiceResultDto<UsersDto> loginResult =
-                loginService.login(request);
-    
-        if (!loginResult.success()) {
-        
-            redirectAttributes.addFlashAttribute("loginRequest", request);
-            redirectAttributes.addFlashAttribute("error", loginResult.message());
-        
-            return "redirect:/";
-        }
-        SessionUtil.setLoginSession(session, loginResult);
-    
-        return "redirect:/menu";
-    }
 }
