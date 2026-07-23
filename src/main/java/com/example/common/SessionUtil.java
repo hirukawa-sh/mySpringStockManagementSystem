@@ -10,6 +10,6 @@ public class SessionUtil {
   
   public void SetLoginSession(HttpSession session,
     ServiceResultDto<UsersDto> loginResult) {
-      session.addAttribute(SESSON_NAME_LOGIN, loginResult.data());
+      session.setAttribute(SESSON_NAME_LOGIN, loginResult.data());
   }
 }
