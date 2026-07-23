@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import jakarta.validation.Valid;
 
+import com.example.common.*;
 import com.example.dto.*;
 import com.example.entity.*;
 import com.example.service.*;
@@ -63,7 +64,7 @@ public class LoginController {
         
             return "redirect:/";
         }
-        session.setAttribute("loginUser", loginResult.data());
+        SessionUtil.setLoginSession(session, loginResult);
     
         return "redirect:/menu";
     }
