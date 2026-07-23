@@ -64,7 +64,7 @@ public class LoginController {
         
             return "redirect:/";
         }
-        SessionUtil.setLoginSession(session, loginResult;
+        SessionUtil.setLoginSession(session, loginResult);
     
         return "redirect:/menu";
     }
