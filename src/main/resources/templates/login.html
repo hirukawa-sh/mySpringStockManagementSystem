@@ -19,6 +19,7 @@
             <label>ユーザー名</label>
             <input type="text"
                 th:field="*{name}"
+                th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'"
                 class="form-control">
         </div>
 
@@ -26,6 +27,7 @@
             <label>パスワード</label>
             <input type="password"
                 th:field="*{password}"
+                th:classappend="${#fields.hasErrors('password')} ? 'is-invalid'"
                 class="form-control">
         </div>
 
