@@ -8,7 +8,7 @@ public class SessionUtil {
   
   private static String SESSON_NAME_LOGIN = "loginResult";
   
-  public static void SetLoginSession(HttpSession session,
+  public static void setLoginSession(HttpSession session,
     ServiceResultDto<UsersDto> loginResult) {
       session.setAttribute(SESSON_NAME_LOGIN, loginResult.data());
   }
