@@ -27,6 +27,6 @@ public class SessionUtil {
    * ログイン中か？
    */
   public static boolean isLogin(HttpSession session) {
-    
+    return false;
   }
 }
